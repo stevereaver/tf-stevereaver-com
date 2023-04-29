@@ -24,3 +24,13 @@ resource "google_compute_backend_bucket" "files" {
   bucket_name = google_storage_bucket.files.name
   enable_cdn  = true
 }
+
+#------------------------------------------------------
+# Bucket for Hugo website
+
+resource "google_storage_bucket" "hugo" {
+  project                     = var.project_id
+  name                        = "${var.project_id}-hugo-files"
+  location                    = "US"
+  uniform_bucket_level_access = true
+}
