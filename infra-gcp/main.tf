@@ -29,7 +29,8 @@ module "frontend" {
   project_id               = var.project_id
   region                   = var.region
   zone                     = var.zone
-  domains                  = var.domains
+  domains_stevereaver      = var.domains_stevereaver
+  domains_hugo             = var.domains_hugo
   instance_group           = var.instance_group
   instance                 = var.instance
   google-iap-client-id     = module.secrets.google-iap-client-id

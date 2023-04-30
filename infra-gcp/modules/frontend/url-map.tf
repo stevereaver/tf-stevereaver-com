@@ -6,9 +6,15 @@ resource "google_compute_url_map" "stevreaver-com-lb-url-map" {
   default_service = module.stevereaver_com_lb.backend_services.default.id
 
   host_rule {
-    hosts        = var.domains
+    hosts        = var.domains_stevereaver
     path_matcher = "stevereaver-com"
-    description  = "The rule to get to the live domains"
+    description  = "The rule to get to stevereaver.com"
+  }
+
+  host_rule {
+    hosts        = var.domains_hugo
+    path_matcher = "stevereaver-com"
+    description  = "The rule to get to Hugo website"
   }
 
   path_matcher {

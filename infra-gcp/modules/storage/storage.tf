@@ -34,3 +34,11 @@ resource "google_storage_bucket" "hugo" {
   location                    = "US"
   uniform_bucket_level_access = true
 }
+
+resource "google_compute_backend_bucket" "hugo_files" {
+  project     = var.project_id
+  name        = "hugo-files"
+  description = "Contains HUGo website files"
+  bucket_name = google_storage_bucket.hugo.name
+  enable_cdn  = true
+}

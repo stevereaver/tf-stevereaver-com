@@ -11,7 +11,7 @@ module "stevereaver_com_lb" {
   ssl                             = true
   random_certificate_suffix       = true
   https_redirect                  = true
-  managed_ssl_certificate_domains = var.domains
+  managed_ssl_certificate_domains = var.domains_stevereaver
 
   backends = {
     default = {

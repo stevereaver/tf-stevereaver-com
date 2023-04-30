@@ -19,7 +19,10 @@ variable "zone" {
 variable "instance_group" {
   type = string
 }
-variable "domains" {
+variable "domains_stevereaver" {
+  type = list(string)
+}
+variable "domains_hugo" {
   type = list(string)
 }
 variable "iap_users" {
