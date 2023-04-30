@@ -8,10 +8,12 @@ module "stevereaver_com_lb" {
   project                         = var.project_id
   create_url_map                  = false
   url_map                         = google_compute_url_map.stevreaver-com-lb-url-map.self_link
+  use_ssl_certificates            = true
   ssl                             = true
   random_certificate_suffix       = true
   https_redirect                  = true
-  managed_ssl_certificate_domains = var.domains_stevereaver
+  #managed_ssl_certificate_domains = var.domains_stevereaver
+  ssl_certificates = concat(google_compute_managed_ssl_certificate.stevereaver[*].self_link, google_compute_managed_ssl_certificate.hugo[*].self_link)
 
   backends = {
     default = {
