@@ -25,6 +25,9 @@ variable "domains_hugo" {
 variable "bucket_id" {
   type = string
 }
+variable "hugo_bucket_id" {
+  type = string
+}
 variable "google-iap-client-id" {
   type = string
 }

@@ -36,6 +36,7 @@ module "frontend" {
   google-iap-client-id     = module.secrets.google-iap-client-id
   google-iap-client-secret = module.secrets.google-iap-client-secret
   bucket_id                = module.storage.files_bucket_id
+  hugo_bucket_id           = module.storage.hugo_bucket_id
 }
 
 #-------------------------------------------------------

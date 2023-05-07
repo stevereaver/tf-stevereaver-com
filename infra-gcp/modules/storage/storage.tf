@@ -33,12 +33,22 @@ resource "google_storage_bucket" "hugo" {
   name                        = "${var.project_id}-hugo-files"
   location                    = "US"
   uniform_bucket_level_access = true
+  website {
+    main_page_suffix = "index.html"
+    not_found_page   = "404.html"
+  }
+}
+
+resource "google_storage_bucket_iam_member" "hugo_member" {
+  bucket = google_storage_bucket.hugo.name
+  role   = "roles/storage.objectViewer"
+  member = "allUsers"
 }
 
 resource "google_compute_backend_bucket" "hugo_files" {
   project     = var.project_id
   name        = "hugo-files"
-  description = "Contains HUGo website files"
+  description = "Contains HUGO website files"
   bucket_name = google_storage_bucket.hugo.name
   enable_cdn  = true
 }
