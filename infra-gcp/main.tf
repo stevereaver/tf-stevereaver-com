@@ -31,6 +31,7 @@ module "frontend" {
   zone                     = var.zone
   domains_stevereaver      = var.domains_stevereaver
   domains_hugo             = var.domains_hugo
+  domains_rvrmedia         = var.domains_rvrmedia
   instance_group           = var.instance_group
   instance                 = var.instance
   google-iap-client-id     = module.secrets.google-iap-client-id

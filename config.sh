@@ -4,6 +4,7 @@ export LOCATION="us-central1"
 export ZONE="us-central1-f"
 export TERRAFORM_STATE_BUCKET="terraform-state"
 export DOMAINS_STEVEREAVER='["stevereaver.com","www.stevereaver.com"]'
+export DOMAINS_RVRMEDIA='["rvrmedia.com","www.rvrmedia.com"]'
 export DOMAINS_HUGO='["stephenbancroft.id.au"]'
 export NETWORK="default"
 
@@ -26,6 +27,7 @@ export TF_VAR_zone=${ZONE}
 export TF_VAR_instance_group=${INSTANCE_GROUP}
 export TF_VAR_instance=${INSTANCE}
 export TF_VAR_domains_stevereaver=${DOMAINS_STEVEREAVER}
+export TF_VAR_domains_rvrmedia=${DOMAINS_RVRMEDIA}
 export TF_VAR_domains_hugo=${DOMAINS_HUGO}
 export TF_VAR_iap_users=${IAP_USERS}
 export TF_VAR_network=${NETWORK}

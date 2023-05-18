@@ -18,3 +18,12 @@ resource "google_compute_managed_ssl_certificate" "hugo" {
     domains = var.domains_hugo
   }
 }
+
+resource "google_compute_managed_ssl_certificate" "rvrmedia" {
+  project = var.project_id
+  name    = replace(var.domains_rvrmedia[0], ".", "-")
+
+  managed {
+    domains = var.domains_rvrmedia
+  }
+}

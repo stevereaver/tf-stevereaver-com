@@ -19,6 +19,9 @@ variable "instance_group" {
 variable "domains_stevereaver" {
   type = list(string)
 }
+variable "domains_rvrmedia" {
+  type = list(string)
+}
 variable "domains_hugo" {
   type = list(string)
 }
