@@ -31,3 +31,15 @@ module "custom-roles-compute" {
   permissions  = ["compute.instances.start", "compute.instances.stop"]
   members      = ["serviceAccount:service-${var.project_number}@compute-system.iam.gserviceaccount.com"]
 }
+
+resource "google_service_account" "hugo_deployer" {
+  account_id   = "hugo-deployer"
+  display_name = "Hugo Deployer"
+  project      = var.project_id
+}
+
+resource "google_project_iam_member" "hugo_deployer_cdn_invalidation" {
+  project = var.project_id
+  role    = "roles/compute.loadBalancerAdmin"
+  member  = "serviceAccount:${google_service_account.hugo_deployer.email}"
+}

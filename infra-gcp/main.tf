@@ -44,8 +44,9 @@ module "frontend" {
 # Storage Module
 #-------------------------------------------------------
 module "storage" {
-  source     = "./modules/storage"
-  project_id = var.project_id
+  source              = "./modules/storage"
+  project_id          = var.project_id
+  hugo_deployer_email = module.iam.hugo_deployer_email
 }
 
 #-------------------------------------------------------

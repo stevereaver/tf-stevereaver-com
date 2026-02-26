@@ -52,3 +52,9 @@ resource "google_compute_backend_bucket" "hugo_files" {
   bucket_name = google_storage_bucket.hugo.name
   enable_cdn  = true
 }
+
+resource "google_storage_bucket_iam_member" "hugo_writer" {
+  bucket = google_storage_bucket.hugo.name
+  role   = "roles/storage.objectAdmin"
+  member = "serviceAccount:${var.hugo_deployer_email}"
+}
